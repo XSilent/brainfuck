@@ -3,6 +3,7 @@ package packages
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 )
 
 const cellInc = 43      // +
@@ -52,8 +53,6 @@ func (i *Interpreter) Run(source []byte) {
 					j--
 				}
 			}
-		case 65:
-			break
 		}
 
 		j++
@@ -65,7 +64,8 @@ func (i *Interpreter) Run(source []byte) {
 func (i *Interpreter) RunFromFile(file string) {
 	code, err := ioutil.ReadFile(file)
 	if err != nil {
-		panic(err)
+		fmt.Println("Source file not found!")
+		os.Exit(-1)
 	}
 
 	i.Run(code)
