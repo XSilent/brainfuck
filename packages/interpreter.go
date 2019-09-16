@@ -37,7 +37,13 @@ func (i *Interpreter) Run(source []byte) {
 		case pointerDec:
 			pointer--
 		case cellInput:
-			//
+			/*
+				reader := bufio.NewReader(os.Stdin)
+				input, _ := reader.ReadString('\n')
+
+				fmt.Printf("Input Char Is : %v", string([]byte(input)[0]))
+
+			*/
 		case cellOutput:
 			fmt.Print(string(band[pointer]))
 		case jumpForward:
